@@ -12,6 +12,3 @@ if (themeToggleButton) {
 		localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
 	});
 }
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-theme');
-}
