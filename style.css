@@ -53,15 +53,13 @@ button {
 }
 
 section {
-    background-color: var(--section-bg);
+    background-color: rbg(245, 245, 245);
 }
 
-.container {
-   width: 100%;
-   padding 50px 0; 
+.container {   
+   padding: 50px 0;
+   width: 100%; 
 } 
-    
-
 
 .row {
     width: 100%;
@@ -71,7 +69,7 @@ section {
 }
 
 .click {
-    transition: transform 300ms ease;
+    transition: all 300ms ease;
 }
 
 .click:hover {
@@ -83,14 +81,14 @@ section {
 }
 
 .title {
-    font-size: clamp(36px, 8vw, 60px);
+    font-size: 120px;
     margin-bottom: 12px;
     text-align: left;
     line-height: 1;
 }
  
 .orange {
-    color: #f06449;
+    color: #f06449 !important;
 }
 
 /*
@@ -246,6 +244,29 @@ height: 100px;
     color: #f06449;
 }
 
+.link__hover-effect {
+    position: relative;
+}
+
+.link__hover-effect::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 0;
+    height: 3px;
+    transition: all 300ms ease;
+}
+
+.link__hover-effect:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+.link__hover-effect--white::after {
+    background-color: white;
+}
+
 /*
 
 PROJECTS
@@ -292,7 +313,7 @@ PROJECTS
     position: absolute;
     top: 0;
     left: 0;
-    transform: translateY(20%);
+    transform: translateY(-50%);
     opacity: 0;    
     color: white;
     width: 100%;
@@ -483,34 +504,64 @@ FOOTER
 
 footer {
     background-color: #242424;
-    display:flex;
-    padding: 6% 0; 
-
+    display: flex;
+    justify-content: center;
+    padding: 36px 0 28px;
 }
 
 .footer__row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+}
+
+.footer__anchor {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
 }
 
 .footer__logo--img {
     width: 70px;
     height: 70px;
-    
+    filter: invert(1);
+}
+
+.footer__logo--popper {
+    position: static;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 300ms ease;
+    color: white;
+    transform: translateY(-4px);
+}
+
+.footer__anchor:hover .footer__logo--popper {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .footer__social--list {
-    width: 100%;
-    max-width: 500px;
     display: flex;
-    justify-content: space-around;
-    margin: 28px 0;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 0;
 }
 
-.footer__social--link
+.footer__social--link,
 .footer__copyright {
     color: white;
+}
+
+.footer__copyright {
+    margin-top: 4px;
 }
    
 
