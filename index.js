@@ -85,7 +85,10 @@ contactModalLinks.forEach((link) => {
 	});
 });
 closeModalButton?.addEventListener('click', () => setModalOpen(false));
-overlayExitButton?.addEventListener('click', () => clearOverlays());
+overlayExitButton?.addEventListener('click', () => {
+	clearOverlays();
+	setFormStatus('');
+});
 
 modal?.addEventListener('click', (event) => {
 	if (event.target === modal) setModalOpen(false);
