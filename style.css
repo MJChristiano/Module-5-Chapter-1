@@ -987,40 +987,39 @@ SHAPES
     height: 20px;
 }
 
-.shape--0 {
-    top: 15vh;
-    left: 5vw;
-}
-.shape--1 {
-    top: 15vh;
-    left: 50vw;
-}
+.shape--0,
+.shape--1,
 .shape--2 {
     top: 15vh;
-    left: 80vw;
 }
-.shape--3 {
-    top: 50vh;
-    left: 5vw;
-}
-.shape--4 {
-    top: 50vh;
-    left: 50vw;
-}
+
+.shape--3,
+.shape--4,
 .shape--5 {
     top: 50vh;
-    left: 80vw;
 }
-.shape--6 {
-    top: 80vh;
-    left: 5vw;
-}
-.shape--7 {
-    top: 80vh;
-    left: 50vw;
-}
+
+.shape--6,
+.shape--7,
 .shape--8 {
     top: 80vh;
+}
+
+.shape--0,
+.shape--3,
+.shape--6 {
+    left: 5vw;
+}
+
+.shape--1,
+.shape--4,
+.shape--7 {
+    left: 50vw;
+}
+
+.shape--2,
+.shape--5,
+.shape--8 {
     left: 80vw;
 }
 
