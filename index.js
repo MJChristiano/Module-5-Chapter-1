@@ -4,6 +4,8 @@ const contactModalLinks = document.querySelectorAll('[data-open-contact-modal="t
 const closeModalButton = document.querySelector('.modal__close');
 const modal = document.querySelector('.modal');
 const modalContact = document.querySelector('.modal__contact');
+const landingPage = document.querySelector('#landing-page');
+const shapes = document.querySelectorAll('.shape');
 const contactForm = document.querySelector('#contact__form');
 const formStatus = contactForm?.querySelector('.form__status');
 const loadingOverlay = document.querySelector('.modal__overlay--loading');
@@ -69,15 +71,12 @@ const setModalOpen = (isOpen) => {
 	modal.classList.toggle('modal--open', isOpen);
 	modal.setAttribute('aria-hidden', String(!isOpen));
 	document.body.classList.toggle('modal-open', isOpen);
-	if (isOpen) {
-		setFormStatus('');
-		clearOverlays();
-	} else {
-		clearOverlays();
-	}
+	if (isOpen) setFormStatus('');
+	clearOverlays();
 };
 
 openModalButton?.addEventListener('click', () => setModalOpen(true));
+landingPage?.addEventListener('mousemove', moveBackground);
 contactModalLinks.forEach((link) => {
 	link.addEventListener('click', (event) => {
 		event.preventDefault();
@@ -118,13 +117,16 @@ contactForm?.addEventListener('submit', async (event) => {
 
 	try {
 		const formData = new FormData(contactForm);
+		const name = String(formData.get('user_name') || '').trim();
+		const email = String(formData.get('user_email') || '').trim();
+		const message = String(formData.get('message') || '').trim();
 		const templateParams = {
-			name: String(formData.get('user_name') || '').trim(),
-			email: String(formData.get('user_email') || '').trim(),
-			message: String(formData.get('message') || '').trim(),
-			from_name: String(formData.get('user_name') || '').trim(),
-			from_email: String(formData.get('user_email') || '').trim(),
-			reply_to: String(formData.get('user_email') || '').trim(),
+			name,
+			email,
+			message,
+			from_name: name,
+			from_email: email,
+			reply_to: email,
 		};
 
 		if (!templateParams.name || !templateParams.email || !templateParams.message) {
@@ -161,7 +163,6 @@ contactForm?.addEventListener('submit', async (event) => {
 const scaleFactor = 1 / 20;
 
 function moveBackground(event) {
-	const shapes = document.querySelectorAll(".shape");
 	const x = event.clientX * scaleFactor;
 	const y = event.clientY * scaleFactor;
 	
