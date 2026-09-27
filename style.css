@@ -41,6 +41,7 @@ body.dark-theme #personal-logo {
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
+    overflow-x: hidden;
     transition: background-color 220ms ease, color 220ms ease;
 }
 
@@ -242,6 +243,9 @@ body.modal-open {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    overflow: hidden;
+    contain: paint;
+    transform: translateZ(0);
     background-color: rgba(16, 20, 28, 0.65);
     opacity: 0;
     visibility: hidden;
