@@ -27,7 +27,6 @@ body.dark-theme {
 .nav__brand {
     display: flex;
     align-items: center;
-    gap: 12px;
 }
 
 #personal-logo {
@@ -42,16 +41,6 @@ body.dark-theme {
 body.dark-theme #personal-logo {
     filter: invert(0);
     mix-blend-mode: normal;
-}
-
-#profile-picture {
-    width: 52px;
-    height: 52px;
-    border: 3px solid #f06449;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
 }
 
 body {
@@ -807,15 +796,6 @@ img {
         padding: 16px;
         flex-wrap: wrap;
         gap: 12px;
-    }
-
-    .nav__brand {
-        gap: 8px;
-    }
-
-    #profile-picture {
-        width: 44px;
-        height: 44px;
     }
 
     .nav__link--list {
