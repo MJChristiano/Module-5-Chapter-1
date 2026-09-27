@@ -146,6 +146,13 @@ nav,
     transition: all 600ms 800ms;
 }
 
+nav,
+.header,
+.scroll {
+    position: relative;
+    z-index: 2;
+}
+
 body.modal-open nav,
 body.modal-open .scroll,
 body.modal-open .header {
@@ -826,6 +833,15 @@ img {
         padding: 28px;
     }
 
+    .project__wrapper--bg {
+        opacity: 0.7;
+    }
+
+    .project__description {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .modal {
         padding: 14px;
     }
@@ -886,6 +902,10 @@ img {
 
     .project__description--para {
         display: none;
+    }
+
+    .project__description--title {
+        font-size: clamp(22px, 7vw, 32px);
     }
 
     .project__description {
@@ -982,9 +1002,17 @@ SHAPES
 */
 
 .shape {
-    position: fixed;
+    position: absolute;
     width: 20px;
     height: 20px;
+    z-index: 1;
+    opacity: 0.58;
+    pointer-events: none;
+    user-select: none;
+    translate: 0 0;
+    rotate: 0deg;
+    animation: shape-float 7s ease-in-out infinite;
+    will-change: transform, translate, rotate, opacity;
 }
 
 .shape--0,
@@ -1021,6 +1049,70 @@ SHAPES
 .shape--5,
 .shape--8 {
     left: 80vw;
+}
+
+.shape--0,
+.shape--4,
+.shape--8 {
+    width: 28px;
+    height: 28px;
+    opacity: 0.42;
+}
+
+.shape--1,
+.shape--5,
+.shape--7 {
+    width: 15px;
+    height: 15px;
+    opacity: 0.68;
+}
+
+.shape--1,
+.shape--4,
+.shape--7 {
+    animation-delay: -2.5s;
+}
+
+.shape--2,
+.shape--5,
+.shape--8 {
+    animation-delay: -5s;
+}
+
+@keyframes shape-float {
+    0%,
+    100% {
+        translate: 0 0;
+        rotate: 0deg;
+    }
+
+    25% {
+        translate: 12px -7px;
+        rotate: 5deg;
+    }
+
+    50% {
+        translate: -5px -18px;
+        rotate: -4deg;
+    }
+
+    75% {
+        translate: -14px -5px;
+        rotate: 3deg;
+    }
+}
+
+@media (max-width: 768px) {
+    .shape {
+        opacity: 0.35;
+        transform: scale(0.85);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .shape {
+        animation: none;
+    }
 }
 
 
